@@ -8,46 +8,44 @@
 </head>
 <body onload="renderImage()">
     <header>
-        <img src="./assets/img/Capa_1.png">
+        <img src="./assets/img/Capa_1.png" alt="Fotogram Logo mit einer bunten, abstrakten Blume und weißer Schrift">
         <script src="https://kit.fontawesome.com/34f6182fea.js" crossorigin="anonymous"></script>
     </header>
 
-    <section>
+    <main>
+        <section>
+            <div>
+                <h1>Your personal photo album</h1>
+                <div id="picWrapper"></div>
+            </div>
+        </section>
 
-        <div>
-            <h1>Your personal photo album</h1>
-            <div id="picWrapper"></div>
-        </div>
-    </section>
+        <dialog id="myDialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescr">
+                <header>
+                    <h2 id="dialogTitle"></h2>
+                </header>
 
-    <dialog id="myDialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescr">
-            <header>
-                <h2 id="dialogTitle">
-                    Bla
-                </h2>
-            </header>
+                <section>
+                    <p id="dialogDescr"></p>
+                </section>
 
-            <section>
-                <p id="dialogDescr">test.</p>
-            </section>
-
-            <footer>
-                <button onclick="prevImg()">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </button>
-                <button onclick="nextImg()">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-                <button onclick="closeDialog()">Schließen</button>
-            </footer>
-        </dialog>
-    
+                <footer>
+                    <button onclick="prevImg()" tabindex="0" aria-label="Go to previous image">
+                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+                    <button onclick="nextImg()" tabindex="0" aria-label="Go to next image">
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                    <button onclick="closeDialog()" tabindex="0">Schließen</button>
+                </footer>
+            </dialog>
+    </main>
     <footer>
         <div>
-            <img src="./assets/img/Logo.png">
+            <img src="./assets/img/Logo.png" alt="Logo der Developer Akademie, roter Umriss eines Monitors und weißer Schrift">
         </div>
         <div>
-            © 2023 Developer Akademie GmbH
+            <p>© 2023 Developer Akademie GmbH</p>
         </div>
     </footer>
 

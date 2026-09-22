@@ -25,7 +25,7 @@ let photos = [
     },
     {
         "source": "toucan.jpg",
-        "alt": "Ein Bild eines Toucans, welcher gelb-schwarz gefärbt ist und einen langen gelb-, orange-, blau-, roten Schnabel hat"
+        "alt": "Ein Bild eines Toucans, welcher gelb-schwarz gefärbt ist und einen langen bunten Schnabel hat"
     },
     {
         "source": "flower.jpg",
@@ -37,11 +37,11 @@ let photos = [
     },
     {
         "source": "milky-way.jpg",
-        "alt": "Ein Bild des Nachthimmels, auf dem die Milchstraße sowie links und rechts davon viele Sterne zu sehen sind"
+        "alt": "Ein Bild des Nachthimmels, auf dem die Milchstraße zu sehen ist"
     },
     {
         "source": "railway-track.jpg",
-        "alt": "Ein Bild von Eisenbahnschienen entlang eines Waldrandes und dem blauen Himmel in der Ferne"
+        "alt": "Ein Bild von Eisenbahnschienen entlang eines Waldrandes"
     },
 ];
 
@@ -67,7 +67,11 @@ function openDialog(i) {
     dialogTitle.innerHTML = (photos[i].source)
         .replace(".jpg", "")
         .replace(".png", "");
-    dialogImg.innerHTML = `<img src="${activeImg.src}" alt="${activeImg.alt}">`;
+    dialogImg.innerHTML = `
+        <img 
+            src="${activeImg.src}" 
+            alt="${activeImg.alt}"
+        >`;
 
 }
 
@@ -78,7 +82,15 @@ function closeDialog() {
 
 function buildImageTemplate(i) {
     return `
-        <img id="img${i}" onclick="openDialog(${i})" src="./assets/img/${photos[i].source}" alt="${photos[i].alt}">`
+        <img 
+            id="img${i}" 
+            onclick="openDialog(${i})"
+            onkeydown="if(event.key === 'Enter') openDialog(${i})"
+            tabindex="0" 
+            role="button" 
+            src="./assets/img/${photos[i].source}" 
+            alt="${photos[i].alt}"
+        >`;
 }
 
 function nextImg() {
@@ -92,13 +104,21 @@ function nextImg() {
         dialogTitle.innerHTML = photos[currentImg].source
         .replace(".jpg", "")
         .replace(".png", "");
-        dialogImg.innerHTML = `<img src="./assets/img/${photos[currentImg].source}" alt="${photos[currentImg].alt}">`;
+        dialogImg.innerHTML = `
+            <img 
+                src="./assets/img/${photos[currentImg].source}" 
+                alt="${photos[currentImg].alt}"
+            >`;
     } else {
         currentImg = 0;
         dialogTitle.innerHTML = photos[currentImg].source
         .replace(".jpg", "")
         .replace(".png", "");
-        dialogImg.innerHTML = `<img src="./assets/img/${photos[currentImg].source}" alt="${photos[currentImg].alt}">`;
+        dialogImg.innerHTML = `
+            <img 
+                src="./assets/img/${photos[currentImg].source}" 
+                alt="${photos[currentImg].alt}"
+            >`;
     }
 }
 
@@ -112,13 +132,21 @@ function prevImg() {
         dialogTitle.innerHTML = photos[currentImg].source
         .replace(".jpg", "")
         .replace(".png", "");
-        dialogImg.innerHTML = `<img src="./assets/img/${photos[currentImg].source}" alt="${photos[currentImg].alt}">`;
+        dialogImg.innerHTML = `
+            <img 
+                src="./assets/img/${photos[currentImg].source}" 
+                alt="${photos[currentImg].alt}"
+            >`;
     } else {
         currentImg = photos.length - 1;
         dialogTitle.innerHTML = photos[currentImg].source
         .replace(".jpg", "")
         .replace(".png", "");
-        dialogImg.innerHTML = `<img src="./assets/img/${photos[currentImg].source}" alt="${photos[currentImg].alt}">`;
+        dialogImg.innerHTML = `
+            <img 
+                src="./assets/img/${photos[currentImg].source}" 
+                alt="${photos[currentImg].alt}"
+            >`;
     }
 }
 
