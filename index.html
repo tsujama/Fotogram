@@ -6,20 +6,47 @@
     <title>Fotogram</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="renderImage()">
     <header>
-        <img src="./assets/img/Capa_1.png">
+        <img src="./assets/img/Capa_1.png" alt="Fotogram Logo mit einer bunten, abstrakten Blume und weißer Schrift">
+        <script src="https://kit.fontawesome.com/34f6182fea.js" crossorigin="anonymous"></script>
     </header>
 
-    <section>
+    <main>
+        <section>
+            <div>
+                <h1>Your personal photo album</h1>
+                <div id="picWrapper"></div>
+            </div>
+        </section>
 
-        <h1>Your personal photo album</h1>
-        <div id="picWrapper"></div>
+        <dialog id="myDialog" aria-labelledby="dialogTitle" aria-describedby="dialogDescr">
+                <header>
+                    <h2 id="dialogTitle"></h2>
+                </header>
 
-    </section>
-    
+                <section>
+                    <p id="dialogDescr"></p>
+                </section>
+
+                <footer>
+                    <button onclick="prevImg()" tabindex="0" aria-label="Go to previous image">
+                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+                    <button onclick="nextImg()" tabindex="0" aria-label="Go to next image">
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                    <button onclick="closeDialog()" tabindex="0">Schließen</button>
+                </footer>
+            </dialog>
+    </main>
     <footer>
-
+        <div>
+            <img src="./assets/img/Logo.png" alt="Logo der Developer Akademie, roter Umriss eines Monitors und weißer Schrift">
+        </div>
+        <div>
+            <p>© 2023 Developer Akademie GmbH</p>
+        </div>
     </footer>
 
 <script src="script.js"></script>
